@@ -1,1 +1,10 @@
-<p>login-page works!</p>
+<form class="conteiner" [formGroup]="form" (ngSubmit)="submit()">
+    <div class="mb-3">
+        <input type="email">
+    </div>
+    <div class="mb-3">
+        <input type="password">
+    </div>
+    
+    <button type="submit">Войти</button>
+</form>
