@@ -1,9 +1,9 @@
 <form class="conteiner" [formGroup]="form" (ngSubmit)="submit()">
     <div class="mb-3">
-        <input type="email">
+        <input type="email" formControlName="login" placeholder="Логин">
     </div>
     <div class="mb-3">
-        <input type="password">
+        <input type="password" formControlName="password" placeholder="Пароль">
     </div>
     
     <button type="submit">Войти</button>
