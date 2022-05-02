@@ -8,6 +8,7 @@ export interface FeedbackItem {
     id: number,
     text: string,
     userId: number,
+    date: Date
     responseItem: ResponseItem
     isCompleted: boolean,
     _links: {
