@@ -10,7 +10,7 @@ export class AuthenticationService {
     constructor(private http: HttpClient) {}
 
     isAuthentificated(): boolean {
-        return !! localStorage.getItem('fb-token')
+        return !! localStorage.getItem('access_token')
     }
 
     login(user: User) {
