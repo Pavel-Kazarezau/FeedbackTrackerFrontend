@@ -12,6 +12,10 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { FeedbackPreviewComponent } from './feedback-preview/feedback-preview.component';
+import ruLocale from '@angular/common/locales/ru';
+import { registerLocaleData } from '@angular/common';
+
+registerLocaleData(ruLocale, 'ru')
 
 const INTERCEPTOR_PROVIDER: Provider  = {
   provide: HTTP_INTERCEPTORS,

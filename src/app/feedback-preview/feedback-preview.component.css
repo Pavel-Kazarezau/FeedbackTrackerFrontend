@@ -5,6 +5,9 @@
 
 .card-text {
     margin-left: 0.5rem;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    height: 6rem;
 }
 
 .btn {
