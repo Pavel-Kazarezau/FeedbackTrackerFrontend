@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FeedbackService } from '../service/feedback.service';
 import { FeedbackItem } from '../../interfaces'
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-home-page',
@@ -9,10 +10,11 @@ import { FeedbackItem } from '../../interfaces'
 })
 export class HomePageComponent implements OnInit {
 
+  feedbackItems$!: Observable<FeedbackItem[]>;
+
   constructor(private feedbackService: FeedbackService) { }
 
   ngOnInit(): void {
-    this.feedbackService.getAll()
-    .subscribe((items: FeedbackItem[]) => console.log(items))
+    this.feedbackItems$ = this.feedbackService.getAll()
   }
 }
