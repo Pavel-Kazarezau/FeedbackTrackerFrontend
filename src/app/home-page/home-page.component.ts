@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FeedbackService } from '../service/feedback.service';
+import { FeedbackItem } from '../../interfaces'
 
 @Component({
   selector: 'app-home-page',
@@ -7,9 +9,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomePageComponent implements OnInit {
 
-  constructor() { }
+  constructor(private feedbackService: FeedbackService) { }
 
   ngOnInit(): void {
+    this.feedbackService.getAll()
+    .subscribe((items: FeedbackItem[]) => console.log(items))
   }
-
 }

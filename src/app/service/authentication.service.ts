@@ -26,4 +26,8 @@ export class AuthenticationService {
     logout() {
         localStorage.clear()
     }
+
+    getAuthToken(): any {
+        return localStorage.getItem('access_token')
+    }
 }
