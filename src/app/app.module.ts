@@ -11,6 +11,7 @@ import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
+import { FeedbackPreviewComponent } from './feedback-preview/feedback-preview.component';
 
 const INTERCEPTOR_PROVIDER: Provider  = {
   provide: HTTP_INTERCEPTORS,
@@ -24,7 +25,8 @@ const INTERCEPTOR_PROVIDER: Provider  = {
     LoginPageComponent,
     MainLayoutComponent,
     NavigationComponent,
-    HomePageComponent
+    HomePageComponent,
+    FeedbackPreviewComponent
   ],
   imports: [
     CommonModule,
