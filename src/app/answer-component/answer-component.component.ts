@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { FeedbackItem, ResponseItem } from 'src/interfaces';
@@ -23,11 +23,15 @@ export class AnswerComponentComponent implements OnInit {
 
   ngOnInit(): void {
     this.form = new FormGroup({
-      answer: new FormControl()
+      answer: new FormControl(null, Validators.required)
     })
   }
 
   answer() {
+    if(this.form.invalid) {
+      return
+    }
+    
     this.feedbackItem$.subscribe(feedbackItem => {
       let responseItem: ResponseItem = {
         feedbackItemId: feedbackItem.id,

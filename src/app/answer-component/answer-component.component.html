@@ -2,8 +2,18 @@
     <div class="input-group">
         <span class="input-group-text">Ответ</span>
         <textarea class="form-control" formControlName="answer" aria-label="With textarea"></textarea>
-      </div>
-      <button class="btn btn-light"
-(click)="answer()"
->Отправить ответ</button>
+    </div>
+    <div class="validation"
+    *ngIf="form.get('answer')?.touched && form.get('answer')?.invalid"
+    >
+        <div class="alert alert-danger d-flex align-items-center" role="alert">
+            <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
+            <div>
+             Заполните поле
+            </div>
+        </div>
+    </div>
+    <button class="btn btn-light"
+    (click)="answer()"
+    >Отправить ответ</button>
 </form>
