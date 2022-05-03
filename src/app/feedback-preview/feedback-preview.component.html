@@ -2,7 +2,9 @@
     <div class="card-body">
         <p class="card-text">{{ feedbackItem.text }}</p>
 
-        <button class="btn btn-light">Рассмотерть запись</button>
+        <button class="btn btn-light"
+        [routerLink]="['/feedback', feedbackItem.id]"
+        >Рассмотреть запись</button>
         <button class="btn btn-light">Пометить выполненым</button>
         <p class="p-date">{{ feedbackItem.date | date:'medium': 'null': 'ru'}}</p>
     </div>
