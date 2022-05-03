@@ -13,7 +13,6 @@
         <button class="btn btn-light"
         [routerLink]="['/feedback', feedbackItem.id]"
         >Рассмотреть запись</button>
-        <button class="btn btn-light">Пометить выполненым</button>
         <p class="p-date">Дата обращения: {{ feedbackItem.date | date:'medium': 'null': 'ru'}}</p>
     </div>
 </div>
@@ -22,7 +21,7 @@
     <div class="alert alert-primary d-flex align-items-center" role="alert">
         <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Info:"><use xlink:href="#check-circle-fill"/></svg>
         <div>
-            Запись#{{ feedbackItem.id }}
+            <del>Запись#{{ feedbackItem.id }}</del>
         </div>
       </div>
 </ng-template>

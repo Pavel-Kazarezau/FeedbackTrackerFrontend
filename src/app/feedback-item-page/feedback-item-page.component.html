@@ -3,9 +3,17 @@
 >
     <div class="card">
         <div class="card-body">
-            <p class="card-text">{{ feedbackItem.text }}</p>
+            <div
+        *ngIf="!feedbackItem.isCompleted; else completed">
+            <div class="alert alert-warning d-flex align-items-center">
+             <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Warning:"><use xlink:href="#exclamation-triangle-fill"/></svg>
+                <div>
+                  Запись#{{ feedbackItem.id }}
+                </div>
+            </div>
         </div>
-        <p class="p-date">Дата обращения: {{ feedbackItem.date | date:'medium': 'null': 'ru'}}</p>
+            <p class="card-text">{{ feedbackItem.text }}</p>
+            <p class="p-date">Дата обращения: {{ feedbackItem.date | date:'medium': 'null': 'ru'}}</p>
         <div
         *ngIf="!feedbackItem.isCompleted; else completionTime"
         >
@@ -15,10 +23,26 @@
         <button class="btn btn-light"
         routerLink="/home"
         >Назад</button>
+        </div>
     </div>
     
     <ng-template #completionTime>
         <p class="p-date">Дата закрытия: {{ feedbackItem.date | date:'medium': 'null': 'ru'}}</p>
+        <div class="answer-presenter">
+            <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm"><h6>Ответ:</h6></label>
+            <div class="col-sm-10">
+                <p id="colFormLabelSm">{{ feedbackItem.responseItem.response }}</p>
+            </div>
+        </div>
+    </ng-template>
+
+    <ng-template #completed>
+        <div class="alert alert-primary d-flex align-items-center" role="alert">
+            <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Info:"><use xlink:href="#check-circle-fill"/></svg>
+            <div>
+                <del>Запись#{{ feedbackItem.id }}</del>
+            </div>
+          </div>
     </ng-template>
 </div>
 
