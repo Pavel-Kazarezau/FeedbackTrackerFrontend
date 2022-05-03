@@ -20,12 +20,16 @@ export class LoginPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.form = new FormGroup({
-      login: new FormControl('', [Validators.required, Validators.email]),
-      password: new FormControl('', [Validators.required, Validators.minLength(6)])
+      login: new FormControl('', [Validators.required]),
+      password: new FormControl('', [Validators.required, Validators.minLength(5)])
     })
   }
 
   submit() {
+    if(this.form.invalid) {
+      return
+    }
+
     const user: User = {
       login: this.form.value.login,
       password: this.form.value.password,

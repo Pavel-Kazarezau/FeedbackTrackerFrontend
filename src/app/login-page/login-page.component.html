@@ -1,10 +1,39 @@
-<form class="conteiner" [formGroup]="form" (ngSubmit)="submit()">
-    <div class="mb-3">
-        <input type="email" formControlName="login" placeholder="Логин">
+<div class="conteiner d-flex justify-content-center">
+    <div class="card">
+        <form class="conteiner" [formGroup]="form" (ngSubmit)="submit()">
+            <h2>Войти в аккаунт</h2>
+            <div class="mb-3">
+                <input type="email" formControlName="login" placeholder="Логин">
+                <div class="validation"
+                    *ngIf="form.get('login')?.touched && form.get('login')?.invalid">
+                    <div
+                    *ngIf="form.get('login')!.errors['required']">
+                        <div class="alert alert-danger d-flex align-items-center" role="alert">
+                            <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
+                            <div>Заполните Логин</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="mb-3">
+                <input type="password" formControlName="password" placeholder="Пароль">
+                <div class="validation"
+                    *ngIf="form.get('password')?.touched && form.get('password')?.invalid">
+                    <div
+                    *ngIf="form.get('password')!.errors['required']">
+                        <div class="alert alert-danger d-flex align-items-center" role="alert">
+                            <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
+                            <div>Заполните Пароль</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <button type="submit" class="btn btn-light"
+            [disabled]="form.invalid"
+            >Войти</button>
+        </form>
     </div>
-    <div class="mb-3">
-        <input type="password" formControlName="password" placeholder="Пароль">
-    </div>
-    
-    <button type="submit">Войти</button>
-</form>
+</div>
