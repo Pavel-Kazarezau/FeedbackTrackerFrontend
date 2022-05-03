@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { map, Observable, switchMap } from 'rxjs';
-import { FeedbackItem } from 'src/interfaces';
+import { FeedbackItem, ResponseItem } from 'src/interfaces';
 import { FeedbackService } from '../service/feedback.service';
 
 @Component({
@@ -11,7 +11,7 @@ import { FeedbackService } from '../service/feedback.service';
 })
 export class FeedbackItemPageComponent implements OnInit {
 
-  feedbackItem$!: Observable<FeedbackItem>;
+  feedbackItem$!: Observable<FeedbackItem>
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -24,5 +24,4 @@ export class FeedbackItemPageComponent implements OnInit {
       switchMap((params: Params) => this.feedbackService.getById(params['id']))
     )
   }
-
 }
