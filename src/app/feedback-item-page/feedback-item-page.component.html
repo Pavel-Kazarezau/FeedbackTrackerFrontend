@@ -5,11 +5,21 @@
         <div class="card-body">
             <p class="card-text">{{ feedbackItem.text }}</p>
         </div>
-        <app-answer-component [feedbackItem$]="feedbackItem$"></app-answer-component>
+        <p class="p-date">Дата обращения: {{ feedbackItem.date | date:'medium': 'null': 'ru'}}</p>
+        <div
+        *ngIf="!feedbackItem.isCompleted; else completionTime"
+        >
+            <app-answer-component [feedbackItem$]="feedbackItem$"></app-answer-component>
+            
+        </div>
         <button class="btn btn-light"
         routerLink="/home"
         >Назад</button>
     </div>
+    
+    <ng-template #completionTime>
+        <p class="p-date">Дата закрытия: {{ feedbackItem.date | date:'medium': 'null': 'ru'}}</p>
+    </ng-template>
 </div>
 
 <ng-template #loading>
@@ -18,3 +28,4 @@
         </div>
     </div>
 </ng-template>
+
