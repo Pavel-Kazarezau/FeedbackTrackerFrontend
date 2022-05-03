@@ -9,7 +9,8 @@ const routes: Routes = [
   {path: '', component: MainLayoutComponent, children: [
     {path: '', component: LoginPageComponent},
     {path: 'home', component: HomePageComponent},
-    {path: 'feedback/:id', component: FeedbackItemPageComponent}
+    {path: 'feedback/:id', component: FeedbackItemPageComponent},
+    {path: 'unresolved', component: HomePageComponent}
   ]}
 ];
 

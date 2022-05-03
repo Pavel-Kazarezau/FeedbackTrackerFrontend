@@ -18,6 +18,13 @@ export class FeedbackService {
         )
     }
 
+    getUnresolved(): Observable<FeedbackItem[]> {
+        return this.http.get<any>(`${environment.url}/feedbackItems/search/getFeedbackItemByIsCompletedFalse`)
+        .pipe(
+           map(response => response['_embedded']['feedbackItems'])
+        )
+    }
+
     getById(id: any): Observable<FeedbackItem> {
         return this.http.get<FeedbackItem>(`${environment.url}/feedbackItems/${id}`)
     }
