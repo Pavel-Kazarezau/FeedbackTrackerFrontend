@@ -31,7 +31,8 @@ export class AnswerComponentComponent implements OnInit {
     this.feedbackItem$.subscribe(feedbackItem => {
       let responseItem: ResponseItem = {
         feedbackItemId: feedbackItem.id,
-        response: this.form.value.answer
+        response: this.form.value.answer,
+        date: new Date()
       }
       feedbackItem.responseItem = responseItem
 

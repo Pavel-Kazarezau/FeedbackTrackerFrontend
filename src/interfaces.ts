@@ -20,5 +20,6 @@ export interface FeedbackItem {
 
 export interface ResponseItem {
     feedbackItemId: number,
-    response: string
+    response: string,
+    date: Date
 }
