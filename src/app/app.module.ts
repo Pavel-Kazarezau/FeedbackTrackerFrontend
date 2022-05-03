@@ -15,6 +15,7 @@ import { FeedbackPreviewComponent } from './feedback-preview/feedback-preview.co
 import ruLocale from '@angular/common/locales/ru';
 import { registerLocaleData } from '@angular/common';
 import { FeedbackItemPageComponent } from './feedback-item-page/feedback-item-page.component';
+import { AnswerComponentComponent } from './answer-component/answer-component.component';
 
 registerLocaleData(ruLocale, 'ru')
 
@@ -32,7 +33,8 @@ const INTERCEPTOR_PROVIDER: Provider  = {
     NavigationComponent,
     HomePageComponent,
     FeedbackPreviewComponent,
-    FeedbackItemPageComponent
+    FeedbackItemPageComponent,
+    AnswerComponentComponent
   ],
   imports: [
     CommonModule,
