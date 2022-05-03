@@ -5,7 +5,7 @@
         <div class="card-body">
             <p class="card-text">{{ feedbackItem.text }}</p>
         </div>
-        <button class="btn btn-light">Пометить выполненым</button>
+        <app-answer-component [feedbackItem$]="feedbackItem$"></app-answer-component>
         <button class="btn btn-light"
         routerLink="/home"
         >Назад</button>

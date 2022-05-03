@@ -21,4 +21,8 @@ export class FeedbackService {
     getById(id: any): Observable<FeedbackItem> {
         return this.http.get<FeedbackItem>(`${environment.url}/feedbackItems/${id}`)
     }
+
+    sendAnswer(item: FeedbackItem): Observable<FeedbackItem> {
+        return this.http.put<FeedbackItem>(`${environment.url}/update/feedbacks`, item)
+    }
 }
