@@ -6,6 +6,6 @@
         [routerLink]="['/feedback', feedbackItem.id]"
         >Рассмотреть запись</button>
         <button class="btn btn-light">Пометить выполненым</button>
-        <p class="p-date">{{ feedbackItem.date | date:'medium': 'null': 'ru'}}</p>
+        <p class="p-date">Дата обращения: {{ feedbackItem.date | date:'medium': 'null': 'ru'}}</p>
     </div>
 </div>

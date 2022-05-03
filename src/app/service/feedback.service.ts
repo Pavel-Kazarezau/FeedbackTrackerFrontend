@@ -17,4 +17,8 @@ export class FeedbackService {
            map(response => response['_embedded']['feedbackItems'])
         )
     }
+
+    getById(id: any): Observable<FeedbackItem> {
+        return this.http.get<FeedbackItem>(`${environment.url}/feedbackItems/${id}`)
+    }
 }
