@@ -4,13 +4,14 @@ import { FeedbackItemPageComponent } from './feedback-item-page/feedback-item-pa
 import { HomePageComponent } from './home-page/home-page.component';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { MainLayoutComponent } from './main-layout/main-layout.component';
+import {AuthGuard} from "./guard/auth.guard";
 
 const routes: Routes = [
   {path: '', component: MainLayoutComponent, children: [
     {path: '', component: LoginPageComponent},
-    {path: 'home', component: HomePageComponent},
-    {path: 'feedback/:id', component: FeedbackItemPageComponent},
-    {path: 'unresolved', component: HomePageComponent}
+    {path: 'home', component: HomePageComponent, canActivate: [AuthGuard]},
+    {path: 'feedback/:id', component: FeedbackItemPageComponent, canActivate: [AuthGuard]},
+    {path: 'unresolved', component: HomePageComponent, canActivate: [AuthGuard]}
   ]}
 ];
 

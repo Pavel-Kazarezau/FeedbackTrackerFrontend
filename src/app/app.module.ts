@@ -16,6 +16,7 @@ import ruLocale from '@angular/common/locales/ru';
 import { registerLocaleData } from '@angular/common';
 import { FeedbackItemPageComponent } from './feedback-item-page/feedback-item-page.component';
 import { AnswerComponentComponent } from './answer-component/answer-component.component';
+import {AuthGuard} from "./guard/auth.guard";
 
 registerLocaleData(ruLocale, 'ru')
 
@@ -43,7 +44,7 @@ const INTERCEPTOR_PROVIDER: Provider  = {
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [INTERCEPTOR_PROVIDER],
+  providers: [INTERCEPTOR_PROVIDER, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
