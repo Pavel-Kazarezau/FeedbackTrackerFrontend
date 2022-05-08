@@ -9,12 +9,12 @@ export class AuthenticationService {
 
     constructor(private http: HttpClient) {}
 
-    isAuthentificated(): boolean {
+    isAuthenticated(): boolean {
         return !! localStorage.getItem('access_token')
     }
 
     login(user: User) {
-        return this.http.post(`${environment.url}/login`, user, {observe: 'response'}) 
+        return this.http.post(`${environment.url}/login`, user, {observe: 'response'})
         .pipe(
             tap((response: any) => {
                 let token = response.headers.get('access_token')

@@ -6,10 +6,12 @@
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-        <ul class="navbar-nav me-auto mb-3 mb-lg-0">
+      <div
+      *ngIf="authService.isAuthenticated()">
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+          <ul class="navbar-nav me-auto mb-3 mb-lg-0">
             <li routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" class="nav-item">
-                <a routerLink="/home" class="nav-link">Все записи</a>
+              <a routerLink="/home" class="nav-link">Все записи</a>
             </li>
             <li routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" class="nav-item">
               <a routerLink="/unresolved" class="nav-link">Нерасмотренные</a>
@@ -17,7 +19,8 @@
             <li>
               <a class="nav-link" (click)="logout()">Выйти из аккаунта</a>
             </li>
-        </ul>
+          </ul>
+        </div>
       </div>
     </div>
   </nav>
